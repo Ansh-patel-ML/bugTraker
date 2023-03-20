@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reducer from "./reducer";
-import { middleware } from "./middleware";
-import { applyMiddleware } from "redux";
-import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import logger from "../middleware/logger";
 
 const store = configureStore({
   reducer: reducer,
-  middleware: [...getDefaultMiddleware(), middleware],
+  middleware: [logger("Ansh")],
 });
 
 export default store;
